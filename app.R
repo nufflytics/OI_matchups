@@ -108,7 +108,7 @@ server <- function(input, output, session) {
     #})
   })
   
-  new_team <- reactiveTimer(30000)
+  new_team <- reactiveTimer(25000)
   
   observe({
     new_team()
