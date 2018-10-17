@@ -64,8 +64,8 @@ convert_player_to_row <- function(player) {
   as_data_frame(p)
 }
 
-home_teams <- readRDS("data/saved_home_teams.rds")
-away_teams <- readRDS("data/saved_away_teams.rds")
+#home_teams <- readRDS("data/saved_home_teams.rds")
+#away_teams <- readRDS("data/saved_away_teams.rds")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -86,7 +86,7 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
   
-  matchups <- read_csv("data/r1matches.csv")
+  matchups <- read_csv("data/r2_matches.csv", trim_ws = F)
   
   team_index = reactiveVal(0)
   
@@ -94,8 +94,8 @@ server <- function(input, output, session) {
     validate(need(team_index(), message = F))
     
     #future({
-      #api_team(key, matchups$Team[team_index()])
-      home_teams[[team_index()]]
+      api_team(key, matchups$Team[team_index()])
+      #home_teams[[team_index()]]
     #})
   })
   
@@ -103,12 +103,12 @@ server <- function(input, output, session) {
     validate(need(team_index(), message = F))
     
     #future({
-      #api_team(key, matchups$Team2[team_index()])
-      away_teams[[team_index()]]
+      api_team(key, matchups$Team2[team_index()])
+      #away_teams[[team_index()]]
     #})
   })
   
-  new_team <- reactiveTimer(20000)
+  new_team <- reactiveTimer(30000)
   
   observe({
     new_team()
