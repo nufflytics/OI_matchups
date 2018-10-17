@@ -1,0 +1,192 @@
+.gone {
+    display: none;
+}
+
+body {
+    background: rgba(0,0,0,0.3);
+}
+
+.table {
+    margin-left: -15px;
+}
+
+.table tbody {
+    border-top-style: solid;
+    border-top-color: black;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+.table thead {
+    background: red;
+    color: black;
+    font-family: 'Alegreya SC', serif;
+    font-size: 150%;
+}
+
+.table td{
+    border-top: none !important;
+    background: black;
+    color: red;
+}
+
+.vs {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+.identifier {
+    margin-top: 35vh;
+    margin-right: 0px;
+    margin-left: 0px;
+    animation: splash_anim 1s 9s;
+    animation-fill-mode: forwards;
+}
+
+.matchup {
+    position: relative;
+}
+
+.division {
+    font-size: 300%;
+    font-family: 'Alegreya SC', serif;
+    color: #000000;
+    text-align: center;
+}
+
+.coach {
+    font-size: 200%;
+    font-family: 'Alegreya SC', serif;
+    color: #000000;
+    margin-bottom: 0px;
+}
+
+.team {
+    font-size: 300%;
+    font-family: 'Alegreya SC', serif;
+    color: #000000;
+    margin-bottom: -10px;
+}
+
+.record {
+    font-size: 200%;
+    font-family: 'Alegreya SC', serif;
+    color: #000000;
+    margin-bottom: 0px;
+}
+
+.motto {
+    font-size: 150%;
+    font-family: 'Alegreya SC', serif;
+    color: #000000;
+    margin-bottom: 0px;
+}
+
+
+@keyframes home_team_anim {
+    0% {
+        left: -1000px;
+        top: -2000px;
+        opacity: 0;
+        visibility: visible;
+    }
+    
+    100% {
+        left: 0px;
+        top: 0px;
+        opacity: 100;
+        visibility: visible;
+    }
+}
+
+@keyframes away_team_anim {
+    0% {
+        right: -1000px;
+        bottom: -2000px;
+        opacity: 0;
+        visibility: visible;
+    }
+    
+    100% {
+        right: 0px;
+        bottom: 0px;
+        opacity: 100;
+        visibility: visible;
+    }
+}
+
+@keyframes splash_anim {
+    0% {
+      opacity: 100;
+    }
+    
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes central_col_anim {
+    0% {
+        width: 0%;
+        opacity: 0;
+    }
+    
+    100% {
+        width: 100px;
+        opacity: 100;
+        visibility: visible;
+    }
+}
+
+.home_team {
+    visibility: hidden;
+    padding:0;
+    position: relative;
+    left: -1000px;
+    top: -2000px;
+    animation: home_team_anim 4s 9.5s 1 ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.home_team table {
+  float:right;
+}
+
+.away_team {
+    padding: 0;
+      visibility: hidden;
+    position: relative;
+    right: -1000px;
+    bottom: -2000px;
+    animation: away_team_anim 4s 9.5s 1 ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.central_col {
+    padding: 0;
+      visibility: hidden;
+    display: block;
+    position: relative;
+    top: 30px;
+    right: -8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    animation: central_col_anim 4s 9.5s 1 ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.skillimg {
+ height: 30px;
+ min-height: 30px;
+ min-width: 30px;
+ margin: 1px;
+ border-radius: 5px;
+ border-width: 2px;
+ border-style: solid;
+ border-color #444;
+}
