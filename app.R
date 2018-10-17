@@ -113,7 +113,10 @@ server <- function(input, output, session) {
   observe({
     new_team()
     
-    team_index(isolate(team_index())+1)
+    if (isolate(team_index() <= nrow(matchups))) {
+      team_index(isolate(team_index())+1)
+    } 
+    
     })
   
   output$splash <- renderUI({
