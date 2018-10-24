@@ -86,7 +86,7 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
   
-  matchups <- read_csv("data/r2_matches.csv", trim_ws = F)
+  matchups <- read_csv("data/r3matches.csv", trim_ws = F)
   
   team_index = reactiveVal(0)
   
@@ -140,9 +140,9 @@ server <- function(input, output, session) {
             column(class = "away_team",5, img(height = "150px", src=glue::glue("http://images.bb2.cyanide-studio.com/logos/Logo_{a$team$logo}.png")))
           ),
           fluidRow(
-            column(class = "home_team", 5, div(class = "text-right", p(class="team", h$team$name), p(class="coach", h$coach$name), p(class = "coach", id_to_race(h$team$idraces)), p(class="motto",h$team$leitmotiv))),
+            column(class = "home_team", 5, div(class = "text-right", p(class="team", h$team$name), p(class="coach", h$coach$name), p(class = "coach", id_to_race(h$team$idraces)), p(class = "motto", glue::glue("TV {h$team$value}")), p(class="motto",h$team$leitmotiv))),
             column(2,  img(class = "central_col", src="img/BigIconVS.png")),
-            column(class = "away_team", 5, div(p(class = "team", a$team$name),  p(class = "coach", a$coach$name), p(class = "coach", id_to_race(a$team$idraces)), p(class = "motto", a$team$leitmotiv)))
+            column(class = "away_team", 5, div(p(class = "team", a$team$name),  p(class = "coach", a$coach$name), p(class = "coach", id_to_race(a$team$idraces)), p(class = "motto", glue::glue("TV {a$team$value}")), p(class = "motto", a$team$leitmotiv)))
           ),
           column(class = "home_team", 5, tableOutput("home_roster")),
           column(2),
